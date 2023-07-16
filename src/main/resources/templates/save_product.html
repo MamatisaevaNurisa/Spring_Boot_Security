@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save page</title>
+</head>
+<body>
+<div class="form" style="height:300px">
+    <form
+            th:action="@{save_product}"
+            th:method="post"
+            th:object="${product}"
+            style="text-align: center">
+
+        <input text="text" class="form_input" th:field="*{name}" placeholder="Product Name">
+        <br>
+        <br>
+        <input text="text" class="form_input" th:field="*{brand}" placeholder="Product Brand">
+        <br>
+        <br>
+        <input type="submit" value = "ENTER">
+
+    </form>
+</div>
+
+</body>
+</html>

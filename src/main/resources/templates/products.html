@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html th:lang="en-ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta th:charset="UTF-8">
+    <title>List Page</title>
+</head>
+<body>
+<div>
+    <input style="display: block; margin:auto; font-size: 50px"
+           type="button" value="NEW" onclick="window.location.href = '/new'">
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+        <tr th:each="product:${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.brand}"></td>
+            <td>
+                <form th:method="post"
+                      th:action="@{/delete/(id=${product.getId()})}">
+                    <input type="submit" value="DELETE" style="color: red">
+                </form>
+            </td>
+            <td>
+                <form
+                        th:method="get"
+                        th:action="@{/update_product/{id}(id=${product.id})}">
+                    <input type="submit" value="EDIT" style="color: green">
+                </form>
+            </td>
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>
